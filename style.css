@@ -1,0 +1,237 @@
+:root {
+  --bg-top: #dce8f0;
+  --bg-bottom: #f3efe6;
+  --ink: #1a2330;
+  --muted: #5a6675;
+  --surface: rgba(255, 255, 255, 0.55);
+  --calc-shell: #1f2a38;
+  --calc-face: #2a384a;
+  --key: #3a4b60;
+  --key-text: #f4f7fb;
+  --key-func: #52657a;
+  --key-op: #c47a3a;
+  --key-eq: #2f8f7b;
+  --shadow: 0 24px 60px rgba(26, 35, 48, 0.18);
+  --radius: 18px;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Outfit", "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(90, 140, 180, 0.35), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 95% 15%, rgba(196, 122, 58, 0.18), transparent 50%),
+    linear-gradient(165deg, var(--bg-top), var(--bg-bottom));
+  line-height: 1.6;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+}
+
+.brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--ink);
+}
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.hero {
+  padding: 4.5rem 0 3.5rem;
+  animation: rise 0.7s ease both;
+}
+
+.brand-hero {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 10vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  margin: 0 0 1.25rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.intro {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.calculator-section {
+  padding: 2rem 0 1rem;
+  animation: rise 0.7s ease 0.12s both;
+}
+
+.calculator-section h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.section-desc {
+  margin: 0 0 1.75rem;
+  color: var(--muted);
+}
+
+.calculator {
+  width: min(100%, 320px);
+  padding: 1.1rem;
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, var(--calc-shell), var(--calc-face));
+  box-shadow: var(--shadow);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.calculator:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px rgba(26, 35, 48, 0.22);
+}
+
+.display {
+  min-height: 4.5rem;
+  margin-bottom: 0.85rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: rgba(10, 16, 24, 0.45);
+  color: #f7fafc;
+  font-family: var(--font-body);
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-align: right;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.55rem;
+}
+
+.key {
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  min-height: 3.35rem;
+  padding: 0;
+  background: var(--key);
+  color: var(--key-text);
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease, background 0.15s ease;
+}
+
+.key:hover {
+  filter: brightness(1.12);
+}
+
+.key:active {
+  transform: scale(0.94);
+}
+
+.key-func {
+  background: var(--key-func);
+}
+
+.key-op {
+  background: var(--key-op);
+}
+
+.key-eq {
+  background: var(--key-eq);
+}
+
+.key-zero {
+  grid-column: span 2;
+}
+
+.site-footer {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    padding-inline: 1.1rem;
+  }
+
+  main {
+    padding-inline: 1.1rem;
+  }
+
+  .hero {
+    padding-top: 2.5rem;
+  }
+
+  .calculator {
+    width: 100%;
+  }
+}
